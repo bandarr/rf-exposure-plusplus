@@ -1,0 +1,22 @@
+#pragma once
+
+#include "FrequencyValues.h"
+#include "CableValues.h"
+
+namespace Exposure
+{
+  class ExposureCalculator
+  {
+  public:
+    float CalculateUncontrolledSafeDistance( FrequencyValues freq_values, CableValues cable_values, int transmitter_power, int feedline_length, float duty_cycle, float uncontrolled_percentage_30_minutes );
+
+  private:
+    float CalculateReflectionCoefficient( float swr );
+    float CalculateFeedlineLossForMatchedLoadAtFrequency( int feedline_length, float feedline_loss_per_100ft_at_frequency );
+    float CalculateFeedlineLossForMatchedLoadAtFrequencyPercentage( float feedline_loss_for_matched_load );
+    float CalculateFeedlineLossPer100ftAtFrequency( float freq, CableValues cable_values );
+    float CalculateFeedlineLossForSWR( float feedline_loss_for_matched_load_percentage, float gamma_squared );
+    float CalculateFeedlineLossForSWRPercentage( float feedline_loss_for_swr );
+
+  };
+}
