@@ -5,12 +5,11 @@ namespace Exposure
   {
   public:
     FrequencyValues( float frequency, float swr, float gaindbi );
-    float GetFrequency();
-    float GetSWR();
-    float GetGaindbi();
+    float getFrequency();
+    float getSWR();
+    float getGaindbi();
 
   private:
     float frequency, swr, gaindbi;
   };
 }
-

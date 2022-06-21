@@ -1,12 +1,11 @@
-﻿// Yarg.cpp : Defines the entry point for the application.
+﻿// rf-exposure-plus-plus.cpp : Defines the entry point for the application.
 //
 
-#include "rf-exposure-plusplus.h"
+#include "rf-exposure-plus-plus.h"
 
-#include <iostream>
 #include <stdio.h>
 #include "FrequencyValues.h"
-#include "CableValues.h"
+#include "CableLossConstants.h"
 #include "ExposureCalculator.h"
 
 using namespace Exposure;
@@ -20,12 +19,12 @@ int main()
       FrequencyValues( 18.1f, 3.7f, 1.5f ),
       FrequencyValues( 21.45f, 4.45f, 1.5f ),
       FrequencyValues( 24.99f, 4.1f, 1.5f ),
-      FrequencyValues( 29.7f, 2.18f, 4.5f )
+      FrequencyValues( 30.0f, 2.18f, 4.5f )
   };
 
-  CableValues c1( 0.122290f, 0.000260f );
+  CableLossConstants rg213( 0.191f, 0.00126f );
 
-  int xmtr_power = 1500;
+  int xmtr_power = 100;
   int feed_line_length = 75;
   float duty_cycle = 0.5f;
   float per_30 = 0.5f;
@@ -33,7 +32,7 @@ int main()
   for( FrequencyValues x : freqs )
   {
     ExposureCalculator ec1;
-    float yarg = ec1.CalculateUncontrolledSafeDistance( x, c1, xmtr_power, feed_line_length, duty_cycle, per_30 );
+    float yarg = ec1.calculateUncontrolledSafeDistance( x, rg213, xmtr_power, feed_line_length, duty_cycle, per_30 );
     printf( "%f\n", yarg );
   }
 

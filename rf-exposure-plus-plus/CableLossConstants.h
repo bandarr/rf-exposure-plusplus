@@ -6,10 +6,9 @@ namespace Exposure
   {
   public:
     CableLossConstants( float k1, float k2 );
-    float GetK1(), GetK2();
+    float getK1(), getK2();
 
   private:
     float k1, k2;
   };
 }
-

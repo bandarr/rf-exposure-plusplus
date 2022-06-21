@@ -1,4 +1,4 @@
-﻿// Yarg.h : Include file for standard system include files,
+﻿// rf-exposure-plus-plus.h : Include file for standard system include files,
 // or project specific include files.
 
 #pragma once

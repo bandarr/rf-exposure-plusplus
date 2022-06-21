@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("rf-exposure-plusplus")
+project ("rf-exposure-plus-plus")
 
 # Include sub-projects.
-add_subdirectory ("rf-exposure-plusplus")
+add_subdirectory ("rf-exposure-plus-plus")
